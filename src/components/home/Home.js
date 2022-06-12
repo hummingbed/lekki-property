@@ -11,8 +11,8 @@ const Home = () => {
                 <section id="fullpage">
                     <section class="section section_1 ">
                         <div class="btn_box">
-                            <Link to="/about" className="primary_btn" >Sell Propertie</Link>
-                            <Link to="/home" className="secondary_btn" >Buy Properties</Link>
+                            <Link to="/about" className="primary_btn" >Buy Propertie</Link>
+                            <Link to="/addproperty" className="secondary_btn" >Sell Properties</Link>
                         </div>
                     </section>
                 </section>

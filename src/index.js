@@ -7,6 +7,8 @@ import 'bootstrap/dist/js/bootstrap.bundle.min';
 import About from './components/about/About';
 import Home from './components/home/Home';
 import Property from './components/property/Property';
+import SingleProperty from './components/singleproperty/SingleProperty';
+import AddProperty from './components/addproperty/AddProperty';
 import {
   BrowserRouter as Router,
   Routes,
@@ -25,6 +27,8 @@ root.render(
             <Route path="/about" element={<About />} />
             <Route path="/home" element={<Home />} />
             <Route path="/property" element={<Property />} />
+            <Route path="/singleproperty/:id" element={<SingleProperty />} />
+            <Route path="/addproperty" element={<AddProperty />} />
           </Routes>
       </Router>
   // <React.StrictMode>

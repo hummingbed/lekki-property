@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import Property from '../property/Property';
 import SingleProperty from '../singleproperty/SingleProperty';
 import { useState } from 'react';
 import {
@@ -36,6 +37,7 @@ const PropertyApi = () => {
     //         data.address)
 
     // })
+    
 
     return (
         <>
