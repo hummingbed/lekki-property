@@ -18,18 +18,24 @@ const Property = () => {
 
         const filterItem = (bedroomData) =>{
             const updatedItem = data.filter((curEle) =>{
-                return curEle.kitchen === bedroomData;
+                return curEle.bedroom === bedroomData;
             });
             setData(updatedItem)
+            
         }
 
     return (
         <>
             <Navbar></Navbar>
-            <div className="seachbox">
-                <input type="text" placeholder="search address (e.g general" onChange={event => { setSearchProperty(event.target.value) }} />
+            <div className="text-center">
+                <input type="text" placeholder="search address (e.g general" style={{width: 320, }} onChange={event => { setSearchProperty(event.target.value) }} />
             </div>
-            <button onClick={() => filterItem(90) }>2 bedroom</button>
+            <p className="text-center">
+            <button onClick={() => filterItem(1) }  style={{width: 320, }}>1 bedroom</button>
+            <button className="bg-primary" onClick={() => filterItem(4) }  style={{width: 320, }}>4 bedroom</button>
+            <button onClick={() => filterItem(8) }  style={{width: 320, }}>8 bedroom</button>
+            <button className="bg-primary" onClick={() => filterItem(90) }  style={{width: 320, }}>90 bedroom</button>
+            </p>
             <div id="cards_landscape_wrap-2">
                 <div className="container">
                     <div className="row">
