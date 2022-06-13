@@ -4,7 +4,6 @@ import './index.css';
 import App from './App';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
-import About from './components/about/About';
 import Home from './components/home/Home';
 import Property from './components/property/Property';
 import SingleProperty from './components/singleproperty/SingleProperty';
@@ -25,7 +24,6 @@ root.render(
       <Router>
           <Routes>
             <Route path="/" element={<App />} />
-            <Route path="/about" element={<About />} />
             <Route path="/home" element={<Home />} />
             <Route path="/property" element={<Property />} />
             <Route path="/singleproperty/:id" element={<SingleProperty />} />

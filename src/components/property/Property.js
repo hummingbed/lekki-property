@@ -1,28 +1,25 @@
 import Navbar from "../navbar/Navbar";
 import axios from 'axios';
-// import SingleProperty from '../singleproperty/SingleProperty';
 import { useState } from 'react';
 import { Link } from "react-router-dom";
 import logo from '../Assets/logo.jpg';
+import './Property.css';
 
 const Property = () => {
     const url = "https://sfc-lekki-property.herokuapp.com/api/v1/lekki/property";
     const [data, setData] = useState([]);
     const [searchProperty, setSearchProperty] = useState([]);
-    // const [filterProperty, setFilterProperty] = useState(data)
-
+    
     axios.get(url)
         .then(res => {
             const getProperties = res.data.data;
             setData(getProperties);
         }).catch(err => console.log(err))
 
-
         const filterItem = (bedroomData) =>{
             const updatedItem = data.filter((curEle) =>{
                 return curEle.kitchen === bedroomData;
             });
-
             setData(updatedItem)
         }
 
@@ -60,9 +57,8 @@ const Property = () => {
                                                         <h6 className="card-title">no. of rooms: {data.bedroom}</h6>
                                                         <h6 className="card-title">Owner: {data.propertyOwner}</h6>
                                                         <p className="card-title">description: {data.description}</p>
-
-                                                        <Link to={`/singleproperty/${data._id}`}>More Details</Link>
-                                                        <Link to={`/Editproperty/${data._id}`}>Update Property</Link>
+                                                        <Link to={`/singleproperty/${data._id}`}>More Details</Link><br />
+                                                        <Link to={`/Editproperty/${data._id}`} className="text-danger" >Update Property</Link>
                                                     </div>
                                                 </div>
                                             </div>

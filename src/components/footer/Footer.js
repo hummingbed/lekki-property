@@ -3,7 +3,7 @@ const Footer = () => {
     return ( 
         <div class="footer">
 			<ul>
-				<li><a href="#">Tesla © 2021</a></li>
+				<li><a href="#">lekki_property © 2022</a></li>
 				<li><a href="#">Privacy & Legal</a></li>
 				<li><a href="#">contact</a></li>
 				<li><a href="#">careers</a></li>

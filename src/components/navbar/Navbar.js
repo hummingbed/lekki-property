@@ -5,7 +5,7 @@ import {
 
 const Navbar = () => {
   return (
-   
+
     <div>
       <nav className="navbar navbar-expand-lg navbar-light bg-secondary">
         <div className="container">
@@ -14,7 +14,7 @@ const Navbar = () => {
             <span></span>
             <span></span>
           </button>
-          
+
           <Link className="navbar-brand text-brand" to="/">Estate<span className="color-b">Agency</span></Link>
 
           <div className="navbar-collapse collapse justify-content-center" id="navbarDefault">
@@ -22,9 +22,6 @@ const Navbar = () => {
 
               <li className="nav-item">
                 <Link to="/" className="nav-link" >Home</Link>
-              </li>
-              <li className="nav-item">
-                <Link to="/About" className="nav-link" >About</Link>
               </li>
 
               <li className="nav-item">
@@ -34,11 +31,9 @@ const Navbar = () => {
           </div>
         </div>
       </nav>
-      
-
     </div>
 
-      
+
   );
 }
 
