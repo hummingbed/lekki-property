@@ -20,6 +20,7 @@ const SingleProperty = (props) => {
             setData(getProperties);
         }).catch(err => console.log(err))
 
+        // console.log(data.images)
 
     return (
         <>

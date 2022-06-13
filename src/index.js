@@ -9,6 +9,7 @@ import Home from './components/home/Home';
 import Property from './components/property/Property';
 import SingleProperty from './components/singleproperty/SingleProperty';
 import AddProperty from './components/addproperty/AddProperty';
+import EditProperty from './components/editproperty/EditProperty';
 import {
   BrowserRouter as Router,
   Routes,
@@ -28,6 +29,7 @@ root.render(
             <Route path="/home" element={<Home />} />
             <Route path="/property" element={<Property />} />
             <Route path="/singleproperty/:id" element={<SingleProperty />} />
+            <Route path="/Editproperty/:id" element={<EditProperty />} />
             <Route path="/addproperty" element={<AddProperty />} />
           </Routes>
       </Router>

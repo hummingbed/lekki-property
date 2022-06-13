@@ -9,6 +9,7 @@ const Property = () => {
     const url = "https://sfc-lekki-property.herokuapp.com/api/v1/lekki/property";
     const [data, setData] = useState([]);
     const [searchProperty, setSearchProperty] = useState([]);
+    // const [filterProperty, setFilterProperty] = useState(data)
 
     axios.get(url)
         .then(res => {
@@ -16,12 +17,22 @@ const Property = () => {
             setData(getProperties);
         }).catch(err => console.log(err))
 
+
+        const filterItem = (bedroomData) =>{
+            const updatedItem = data.filter((curEle) =>{
+                return curEle.kitchen === bedroomData;
+            });
+
+            setData(updatedItem)
+        }
+
     return (
         <>
             <Navbar></Navbar>
             <div className="seachbox">
                 <input type="text" placeholder="search address (e.g general" onChange={event => { setSearchProperty(event.target.value) }} />
             </div>
+            <button onClick={() => filterItem(90) }>2 bedroom</button>
             <div id="cards_landscape_wrap-2">
                 <div className="container">
                     <div className="row">
@@ -48,9 +59,10 @@ const Property = () => {
                                                         <h6 className="card-title"> Address: {data.address}</h6>
                                                         <h6 className="card-title">no. of rooms: {data.bedroom}</h6>
                                                         <h6 className="card-title">Owner: {data.propertyOwner}</h6>
-                                                        <p className="card-title">description: {data._id}</p>
+                                                        <p className="card-title">description: {data.description}</p>
 
                                                         <Link to={`/singleproperty/${data._id}`}>More Details</Link>
+                                                        <Link to={`/Editproperty/${data._id}`}>Update Property</Link>
                                                     </div>
                                                 </div>
                                             </div>

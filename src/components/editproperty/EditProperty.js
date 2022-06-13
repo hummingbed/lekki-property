@@ -1,11 +1,17 @@
-import './AddProperty.css';
-import { useEffect, useState } from 'react';
+// import './AddProperty.css';
 import Navbar from '../navbar/Navbar';
-import axios from 'axios';
-const AddProperty = () => {
+// import axios from 'axios';
+import { useState } from 'react';
+import { useParams } from "react-router-dom";
+const EditProperty = () => {
+
+    const params = useParams();
+    const userId = params.id;
+
+    
 
     // const initialValues = { address: "", type: "", bedroom: "", sittingRoom: "", kitchen: "", bathroom: "", toilet: "", propertyOwner: "", description: "", validFrom: "", validTo: ""};
-    const [address, setAddress] = useState("");
+    const [address, setAddress] = useState("Mile");
     const [bedroom, setBedroom] = useState("");
     const [type, setType] = useState("");
     const [sittingRoom, SetSittingRoom] = useState("");
@@ -25,26 +31,16 @@ const AddProperty = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        const imageUrl = "https://sfc-lekki-property.herokuapp.com/api/v1/lekki/upload";
-
-        fetch(imageUrl, {
-            method: 'POST',
-
-            headers: {
-                'Content-type': 'application/json; charset=UTF-8',
-            },
-            body: JSON.stringify(formdata)
-        })
-            .then((response) => response.json())
-            .then((json) => console.log(json));
-
-
        
 
-        const url = "https://sfc-lekki-property.herokuapp.com/api/v1/lekki/property";
+
+        const url = `https://sfc-lekki-property.herokuapp.com/api/v1/lekki/property/` + userId;
+
+        console.log(url, 123)
+       // const url = "https://sfc-lekki-property.herokuapp.com/api/v1/lekki/property";
 
         fetch(url, {
-            method: 'POST',
+            method: 'PATCH',
 
             headers: {
                 'Content-Type': 'application/json'
@@ -59,7 +55,7 @@ const AddProperty = () => {
               });
     }
 
-    console.log(data);
+    console.log(data,66);
     return (
         <div>
             <Navbar></Navbar>
@@ -79,20 +75,12 @@ const AddProperty = () => {
                         <h3>Send us a message</h3>
                           
                         <form action="" onSubmit={handleSubmit} >
-                            <p>
-                                <label for="">Address</label>
-                                <input type="text" name='address' value={address} onChange={(e) => setAddress(e.target.value)} />
-                                {/* <small className='text-danger'>{formErrors.address}</small> */}
-                            </p>
-
+                        
                             <p>
                                 <label for="">Bedroom</label>
                                 <input type="number" value={bedroom} onChange={(e) => setBedroom(e.target.value)} />
                             </p>
-                            <p>
-                                <label for="">Type</label>
-                                <input type="text" value={type} onChange={(e) => setType(e.target.value)} />
-                            </p>
+                            
                             <p>
                                 <label for="">sittingRoom</label>
                                 <input type="number" value={sittingRoom} onChange={(e) => SetSittingRoom(e.target.value)} />
@@ -109,22 +97,7 @@ const AddProperty = () => {
                                 <label for=""> toilet</label>
                                 <input type="number" value={toilet} onChange={(e) => setToilet(e.target.value)} />
                             </p>
-                            <p>
-                                <label for="">propertyOwner</label>
-                                <input type="text" value={propertyOwner} onChange={(e) => setPropertyOwner(e.target.value)} />
-                            </p>
-                            <p>
-                                <label for=""> validFrom</label>
-                                <input type="date" value={validFrom} onChange={(e) => setValidFrom(e.target.value)} />
-                            </p>
-                            <p>
-                                <label for="">validTo</label>
-                                <input type="date" value={validTo} onChange={(e) => setValidTo(e.target.value)} />
-                            </p>
-                            <p className="full-width">
-                                <label for="">Write your message</label>
-                                <input type="file" value={formdata} onChange={(e) => setformdata([e.target.value])} src="img_submit.gif" alt="Submit" width="48" height="48" />
-                            </p>
+                            
                             <p className="full-width">
                                 <label for="">Write your message</label>
                                 <textarea type="image" name="" value={description} onChange={(e) => setDescription(e.target.value)} id="" cols="30" rows="7"></textarea>
@@ -141,4 +114,4 @@ const AddProperty = () => {
     );
 }
 
-export default AddProperty;
+export default EditProperty;
