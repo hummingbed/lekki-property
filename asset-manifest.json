@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/lekki-property/static/css/main.2e14b9c7.css",
+    "main.js": "/lekki-property/static/js/main.cde0ddab.js",
+    "static/media/logo.jpg": "/lekki-property/static/media/logo.57ca2742d68d708ac53b.jpg",
+    "static/media/slide-3.jpg": "/lekki-property/static/media/slide-3.8a2bbc338620df80ed8f.jpg",
+    "index.html": "/lekki-property/index.html",
+    "main.2e14b9c7.css.map": "/lekki-property/static/css/main.2e14b9c7.css.map",
+    "main.cde0ddab.js.map": "/lekki-property/static/js/main.cde0ddab.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2e14b9c7.css",
+    "static/js/main.cde0ddab.js"
+  ]
+}
