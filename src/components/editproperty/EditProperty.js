@@ -26,7 +26,7 @@ const EditProperty = () => {
     // const [uploadImage, setformdata] = useState([]);
     
 
-    const data = { address, bedroom, type, sittingRoom, kitchen, bathroom, toilet, propertyOwner, description, validFrom, validTo, formdata }
+    const data = { bedroom, sittingRoom, kitchen, bathroom, toilet, description,  validTo}
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -45,6 +45,7 @@ const EditProperty = () => {
             headers: {
                 'Content-Type': 'application/json'
             },
+            withCredentials: true,
             body: JSON.stringify(data)
         })
             .then((response) => response.json())
@@ -96,6 +97,11 @@ const EditProperty = () => {
                             <p>
                                 <label for=""> toilet</label>
                                 <input type="number" value={toilet} onChange={(e) => setToilet(e.target.value)} />
+                            </p>
+
+                            <p>
+                                <label for="">validTo</label>
+                                <input type="date" value={validTo} onChange={(e) => setValidTo(e.target.value)} />
                             </p>
                             
                             <p className="full-width">
