@@ -1,10 +1,8 @@
 import './AddProperty.css';
 import { useEffect, useState } from 'react';
 import Navbar from '../navbar/Navbar';
-import axios from 'axios';
 const AddProperty = () => {
 
-    // const initialValues = { address: "", type: "", bedroom: "", sittingRoom: "", kitchen: "", bathroom: "", toilet: "", propertyOwner: "", description: "", validFrom: "", validTo: ""};
     const [address, setAddress] = useState("");
     const [bedroom, setBedroom] = useState("");
     const [type, setType] = useState("");
@@ -16,30 +14,12 @@ const AddProperty = () => {
     const [description, setDescription] = useState("");
     const [validFrom, setValidFrom] = useState("");
     const [validTo, setValidTo] = useState("");
-    const [formdata, setformdata] = useState([]);
-    // const [uploadImage, setformdata] = useState([]);
-    
+    const [images, setImages] = useState([]);
 
-    const data = { address, bedroom, type, sittingRoom, kitchen, bathroom, toilet, propertyOwner, description, validFrom, validTo, formdata }
+    const data = { address, bedroom, type, sittingRoom, kitchen, bathroom, toilet, propertyOwner, description, validFrom, validTo, images }
 
     const handleSubmit = (e) => {
         e.preventDefault();
-
-        const imageUrl = "https://sfc-lekki-property.herokuapp.com/api/v1/lekki/upload";
-
-        fetch(imageUrl, {
-            method: 'POST',
-
-            headers: {
-                'Content-type': 'application/json; charset=UTF-8',
-            },
-            body: JSON.stringify(formdata)
-        })
-            .then((response) => response.json())
-            .then((json) => console.log(json));
-
-
-       
 
         const url = "https://sfc-lekki-property.herokuapp.com/api/v1/lekki/property";
 
@@ -54,9 +34,8 @@ const AddProperty = () => {
             .then((response) => response.json())
             .then((json) => console.log(json))
             .catch((error) => {
-                // Handle the error
                 console.log(error);
-              });
+            });
     }
 
     console.log(data);
@@ -76,8 +55,8 @@ const AddProperty = () => {
                     </div>
 
                     <div className="form">
-                        <h3>Send us a message</h3>
-                          
+                        <h3>Enter new Porperty</h3>
+
                         <form action="" onSubmit={handleSubmit} >
                             <p>
                                 <label for="">Address</label>
@@ -123,7 +102,7 @@ const AddProperty = () => {
                             </p>
                             <p className="full-width">
                                 <label for="">Write your message</label>
-                                <input type="file" value={formdata} onChange={(e) => setformdata([e.target.value])} src="img_submit.gif" alt="Submit" width="48" height="48" />
+                                <input type="file" value={images} onChange={(e) => setImages([e.target.value])} src="img_submit.gif" alt="Submit" width="48" height="48" />
                             </p>
                             <p className="full-width">
                                 <label for="">Write your message</label>

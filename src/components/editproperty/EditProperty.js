@@ -53,7 +53,7 @@ const EditProperty = () => {
                     </div>
 
                     <div className="form">
-                        <h3>Send us a message</h3>
+                        <h3>Udate Your Porperty</h3>
 
                         <form action="" onSubmit={handleSubmit} >
                             <p>

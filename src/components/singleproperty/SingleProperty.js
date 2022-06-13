@@ -20,7 +20,7 @@ const SingleProperty = (props) => {
             setData(getProperties);
         }).catch(err => console.log(err))
 
-        // console.log(data.images)
+    // console.log(data.images)
 
     return (
         <>
@@ -29,13 +29,32 @@ const SingleProperty = (props) => {
                 <div className="row">
                     <div className="col-sm-6">
                         <div className="card">
-                            <div className="card-body">
-                                <img src={logo}  />
-                            </div>
+                            {data.images ?
+                                (
+                                    <>
+                                        {data.images.map((image, index) => {
+                                            return (
+                                                <div className="card-body" key={index}>
+                                                    <img src={image.path} alt="Property image" style={{ width: 320, height: 300 }} />
+                                                </div>
+                                            )
+                                        })}
+                                    </>
+                                )
+                                :
+                                (
+                                    <div className="col-sm-6">
+                                    <div className="card-body">
+                                        <img src={logo} />
+                                        <h5 className="card-title">{data.validFrom}</h5>
+                                    </div>
+                                    </div>
+                                )
+                            }
                         </div>
                     </div>
                     <div class="col-sm-6">
-                        <div class="card"> 
+                        <div class="card">
                             <div class="card-body">
                                 <h5 class="card-title">Address: <small className='text-primary'>{data.address}</small></h5>
                                 <h5 class="card-title">Bedroom: <small className='text-primary'>{data.bedroom}</small></h5>
@@ -45,21 +64,15 @@ const SingleProperty = (props) => {
                                 <h5 class="card-title">bathroom: <small className='text-primary'>{data.bathroom}</small></h5>
                                 <h5 class="card-title">Toilet: <small className='text-primary'>{data.toilet}</small></h5>
                                 <h5 class="card-title">Owner: <small className='text-primary'>{data.propertyOwner}</small></h5>
-
                                 <h5 className="card-title">{data.validFrom}</h5>
                                 <h5 className="card-title">{data.description}</h5>
                                 <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                                
+
                             </div>
                         </div>
                     </div>
                 </div>
-
-
             </div>
-            
-                
-            
         </>
     );
 }
